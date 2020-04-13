@@ -3,11 +3,48 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/main.css">
+    <title>Tic Tac Toe game</title>
   </head>
   <body>
-    <h1>Hello Mate Academy</h1>
+  <main class="game">
+    <div class="game__wrapper">
+      <div class="game__row">
+        <span class="game__cell"></span>
+        <span class="game__cell"></span>
+        <span class="game__cell"></span>
+      </div>
+
+      <div class="game__row">
+        <span class="game__cell"></span>
+        <span class="game__cell"></span>
+        <span class="game__cell"></span>
+      </div>
+
+      <div class="game__row">
+        <span class="game__cell"></span>
+        <span class="game__cell"></span>
+        <span class="game__cell"></span>
+      </div>
+    </div>
+    <button class="game__button">Restart</button>
+
+    <div class="modal"></div>
+
+    <div class="game__win game__cross-win">
+      <p class="game__win-text game__cross-win-text">
+        Выиграли крестики!<br>Поздравляем с победой!
+      </p>
+    </div>
+
+    <div class="game__win game__circle-win">
+      <p class="game__win-text game__circle-win-text">
+        Выиграли нолики!<br>Поздравляем с победой!
+      </p>
+    </div>
+  </main>
+
     <script type="text/javascript" src="scripts/main.js"></script>
   </body>
 </html>
