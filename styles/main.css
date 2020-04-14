@@ -54,8 +54,10 @@ body {
     width: calc(100% / 3);
     background-color: transparent;
     border-right: 7px #eff3c6 solid;
-    -webkit-transition: 0.3s ease-in-out;
-    transition: 0.3s ease-in-out; }
+    -webkit-transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+    -webkit-animation: none;
+            animation: none; }
     .game__cell:last-child {
       border-right: none; }
     .game__cell:hover {
@@ -106,7 +108,9 @@ body {
   background-image: url(../images/close.svg);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 80%; }
+  background-size: 80%;
+  -webkit-animation: anim 0.3s ease-in-out;
+          animation: anim 0.3s ease-in-out; }
   .cross:hover {
     background-color: transparent; }
 
@@ -114,7 +118,9 @@ body {
   background-image: url(../images/circle.svg);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 80%; }
+  background-size: 80%;
+  -webkit-animation: anim 0.3s ease-in-out;
+          animation: anim 0.3s ease-in-out; }
   .circle:hover {
     background-color: transparent; }
 
@@ -132,5 +138,25 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
+
+@-webkit-keyframes anim {
+  0% {
+    background-size: 0; }
+  70% {
+    background-size: 80%; }
+  90% {
+    background-size: 70%; }
+  100% {
+    background-size: 80%; } }
+
+@keyframes anim {
+  0% {
+    background-size: 0; }
+  70% {
+    background-size: 80%; }
+  90% {
+    background-size: 70%; }
+  100% {
+    background-size: 80%; } }
 
 /*# sourceMappingURL=main.css.map */

@@ -14,11 +14,13 @@ const winningCombination = [
 let playerX = [];
 let playerY = [];
 let count = 0;
+let drawCounter = 0;
 
 const gameCell = document.querySelectorAll('.game__cell');
 const restart = document.querySelector('.game__button');
 const cross = document.querySelector('.game__cross-win');
 const circle = document.querySelector('.game__circle-win');
+const draw = document.querySelector('.game__draw');
 const modal = document.querySelector('.modal');
 
 const winner = function(counter) {
@@ -46,8 +48,8 @@ const checkWinner = function(ind, arr, counter) {
           total++;
 
           if (total === 3) {
-            winner(counter);
             total = 0;
+            winner(counter);
           }
         }
       }
@@ -56,9 +58,22 @@ const checkWinner = function(ind, arr, counter) {
   }
 };
 
+function checkDraw(item) {
+  if (item.classList.contains('circle') || item.classList.contains('cross')) {
+    drawCounter++;
+  }
+
+  if (drawCounter > 8) {
+    draw.classList.add('show');
+    modal.classList.add('show');
+    drawCounter = 0;
+  }
+}
+
 gameCell.forEach((item, index) => {
   item.addEventListener('click', () => {
-    if (item.classList.contains('circle' && 'cross')) {
+    if (item.classList.contains('circle')
+      || item.classList.contains('cross')) {
       return;
     }
 
@@ -69,9 +84,12 @@ gameCell.forEach((item, index) => {
       item.classList.add('circle');
       playerY.push(index + 1);
     }
+
     count++;
 
-    if (playerX.length > 0 || playerY.length > 0) {
+    checkDraw(item);
+
+    if (playerX.length > 2 || playerY.length > 2) {
       checkWinner(index, playerX, count) || checkWinner(index, playerY, count);
     }
   });
@@ -95,6 +113,7 @@ modal.addEventListener('click', function() {
   modal.classList.remove('show');
   cross.classList.remove('show');
   circle.classList.remove('show');
+  draw.classList.remove('show');
 
   restartGame();
 });
