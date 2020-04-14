@@ -49,7 +49,8 @@ body {
     background-color: transparent;
     border-right: 7px #eff3c6 solid;
 
-    transition: 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+    animation: none;
 
     &:last-child {
       border-right: none;
@@ -118,6 +119,8 @@ body {
   background-position: center;
   background-size: 80%;
 
+  animation: anim 0.3s ease-in-out;
+
   &:hover {
     background-color: transparent;
   }
@@ -128,6 +131,8 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 80%;
+
+  animation: anim 0.3s ease-in-out;
 
   &:hover {
     background-color: transparent;
@@ -149,4 +154,22 @@ body {
 
 .show {
   display: flex;
+}
+
+@keyframes anim {
+  0% {
+    background-size: 0;
+  }
+
+  70% {
+    background-size: 80%;
+  }
+
+  90% {
+    background-size: 70%;
+  }
+
+  100% {
+    background-size: 80%;
+  }
 }
