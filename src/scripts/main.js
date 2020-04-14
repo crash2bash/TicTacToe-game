@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const button = document.createElement('button');
 
   button.className = 'game__button';
-  button.textContent = 'result';
+  button.textContent = 'restart';
   game.appendChild(button);
 
   const modalCreate = document.createElement('div');
